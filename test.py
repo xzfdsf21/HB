@@ -15,7 +15,6 @@ studentId = "1080197"
 cookie1 = "JSESSIONID=g8FDqSbKsjTV6Llj3FjyICLk7v_aZOYXFfvu4oFN"
 classesId = "563458097020928000"
 
-payloadGetToken = {"chapterId":chapterId,"classesId":classesId,"courseId":courseId,"learningToken":"","nodeId":nodeId,"sourceType":1,"studentId":1080197,"viewingLength":0}
 
 headers = {
 'POST /learning/coursenoderecord/heartbeat HTTP/1.1'
@@ -74,6 +73,7 @@ while i < len(array):
     nodeId = array[i][2]
     i += 1
     #获取Token
+    payloadGetToken = {"chapterId":chapterId,"classesId":classesId,"courseId":courseId,"learningToken":"","nodeId":nodeId,"sourceType":1,"studentId":1080197,"viewingLength":0}
     r = requests.post(url, json=payloadGetToken , headers=headers)
     learningToken = r.json()["data"]['data']
     time.sleep(2)
